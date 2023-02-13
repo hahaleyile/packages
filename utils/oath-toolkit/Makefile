@@ -45,7 +45,7 @@ define Package/oath-toolkit/description
 endef
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/usr/include
+	$(INSTALL_DIR) $(1)/usr/include/liboath
 	$(CP) $(PKG_INSTALL_DIR)/usr/include/liboath/*.h $(1)/usr/include/liboath/
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/liboath.{a,so*} $(1)/usr/lib/
