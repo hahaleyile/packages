@@ -44,6 +44,15 @@ define Package/oath-toolkit/description
 	HOTP algorithm (RFC4226) and the time-based TOTP algorithm (RFC6238).
 endef
 
+define Build/InstallDev
+	$(INSTALL_DIR) $(1)/usr/include
+	$(CP) $(PKG_INSTALL_DIR)/usr/include/*.h $(1)/usr/include/
+	$(INSTALL_DIR) $(1)/usr/lib
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/liboauth.{a,so*} $(1)/usr/lib/
+	$(INSTALL_DIR) $(1)/usr/lib/pkgconfig
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/pkgconfig/oauth.pc $(1)/usr/lib/pkgconfig/
+endef
+
 define Package/oath-toolkit/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_DIR) $(1)/usr/lib $(1)/usr/lib/security
